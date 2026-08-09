@@ -8,7 +8,7 @@ public:
             dif=target-nums[i];
             if(mpp.find(dif)!=mpp.end())
             {
-                return {mpp.find(dif)->second,i};
+                return {mpp[dif],i};
             }
                 mpp[nums[i]]=i;
         }
