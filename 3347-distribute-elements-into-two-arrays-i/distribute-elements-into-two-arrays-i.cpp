@@ -2,32 +2,26 @@ class Solution {
 public:
     vector<int> resultArray(vector<int>& nums)
     {
-        int i,n=nums.size(),ind1=0,ind2=0;
-        int arr1[n],arr2[n];
-        arr1[0]=nums[0];
-        arr2[0]=nums[1];
+        int i,n=nums.size();
+        vector<int> arr1;
+        vector<int> arr2;
+        arr1.push_back(nums[0]);
+        arr2.push_back(nums[1]);
         for(i=2;i<n;i++)
         {
-            if(arr1[ind1]>arr2[ind2])
+            if(arr1.back()>arr2.back())
             {
-                ind1++;
-                arr1[ind1]=nums[i];
+                arr1.push_back(nums[i]);
             }
             else
             {
-                ind2++;
-                arr2[ind2]=nums[i]; 
+                arr2.push_back(nums[i]);
             }
         }
-        vector<int> result;
-        for (i=0;i<=ind1;i++) 
+        for (i=0;i<arr2.size();i++) 
         {
-            result.push_back(arr1[i]);
+            arr1.push_back(arr2[i]);
         }
-        for (i=0;i<=ind2;i++) 
-        {
-            result.push_back(arr2[i]);
-        }
-        return result;
+        return arr1;
     }
 };
