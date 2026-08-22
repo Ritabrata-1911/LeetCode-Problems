@@ -2,13 +2,14 @@ class Solution {
 public:
     bool isPalindrome(int x) 
     {
-        int copy=x;
-        long long sum=0;
-        while(x>0)
+        if(x<0 || (x%10==0 && x!=0))
+            return false;
+        int half_rev=0;
+        while(x>half_rev)
         {
-            sum=(sum*10)+(x%10);
+            half_rev=(half_rev*10)+(x%10);
             x/=10;
         }
-        return (copy>=0 && copy==sum);
+        return (x==half_rev || x==half_rev/10);
     }
 };
